@@ -24,7 +24,7 @@
       }
         create.addEventListener('click', () => {
             const sum = num.value;
-            continer.style.display = 'flex'
+            // continer.style.display = 'flex'
             console.log(sum);
             for (let i=0; i<sum;i++){   
                 const newDiv = document.createElement("div")
@@ -33,8 +33,12 @@
                 newDiv.style.height = '80000'
                 newDiv.style.background = getRandomColor();
                 continer.appendChild(newDiv)
+                newDiv.addEventListener("click", ()=>{
+                    newDiv.remove()
+                })
         }
     })
+
     </script>
 </body>
 </html>
