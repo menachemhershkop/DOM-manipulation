@@ -8,24 +8,30 @@
 <body>
     <input type="number" name="number" id="number">
     <button id="create">צור ריבועים</button>
-    <div id="tabels" style="width: 400; width: 800;"></div>
+    <div id="tabels" style="width: 4005; width: 800;"></div>
 
     <script>
         const num = document.getElementById('number');
         const create = document.getElementById('create');
         const continer = document.getElementById('tabels');
-        
+        function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
         create.addEventListener('click', () => {
             const sum = num.value;
+            continer.style.display = 'flex'
             console.log(sum);
-            for (let i=0; i<sum;i++){
-                console.log(i);
-                
+            for (let i=0; i<sum;i++){   
                 const newDiv = document.createElement("div")
                 newDiv.innerHTML = i+1
                 newDiv.style.width = '800'
                 newDiv.style.height = '80000'
-                newDiv.style.background = 'red'
+                newDiv.style.background = getRandomColor();
                 continer.appendChild(newDiv)
         }
     })
